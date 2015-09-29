@@ -1,7 +1,5 @@
 <resources>
     <declare-styleable name="QuantityView">
-        <attr name="exampleDimension" format="dimension" />
-
         <attr name="qv_addButtonText" format="string" />
         <attr name="qv_addButtonBackground" format="color|reference" />
         <attr name="qv_addButtonTextColor" format="color" />
