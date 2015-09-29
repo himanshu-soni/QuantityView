@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">quantity-view</string>
+
+    <string name="qv_add">+</string>
+    <string name="qv_remove">-</string>
+</resources>

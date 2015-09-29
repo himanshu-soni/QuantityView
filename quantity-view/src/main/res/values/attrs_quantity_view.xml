@@ -1,0 +1,20 @@
+<resources>
+    <declare-styleable name="QuantityView">
+        <attr name="exampleDimension" format="dimension" />
+
+        <attr name="qv_addButtonText" format="string" />
+        <attr name="qv_addButtonBackground" format="color|reference" />
+        <attr name="qv_addButtonTextColor" format="color" />
+
+        <attr name="qv_removeButtonText" format="string" />
+        <attr name="qv_removeButtonBackground" format="color|reference" />
+        <attr name="qv_removeButtonTextColor" format="color" />
+
+        <attr name="qv_quantity" format="integer" />
+        <attr name="qv_quantityBackground" format="color|reference" />
+        <attr name="qv_quantityTextColor" format="color" />
+
+        <attr name="qv_maxQuantity" format="integer" />
+        <attr name="qv_minQuantity" format="integer" />
+    </declare-styleable>
+</resources>
