@@ -28,8 +28,8 @@ ext {
 
     libraryDescription = 'Android quantity view with add and remove button'
 
-    siteUrl = 'https://github.com/himanshu-soni/quantity-view'
-    gitUrl = 'https://github.com/himanshu-soni/quantity-view.git'
+    siteUrl = 'https://github.com/himanshu-soni/QuantityView'
+    gitUrl = 'https://github.com/himanshu-soni/QuantityView.git'
 
     libraryVersion = '1.0.0'
 
