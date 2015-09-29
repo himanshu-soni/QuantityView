@@ -42,8 +42,8 @@ ext {
     allLicenses = ["Apache-2.0"]
 }
 
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+apply from: 'https://raw.githubusercontent.com/himanshu-soni/QuantityView/master/install.gradle'
+apply from: 'https://raw.githubusercontent.com/himanshu-soni/QuantityView/master/bintray.gradle'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
