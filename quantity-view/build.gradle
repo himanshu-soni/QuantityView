@@ -8,7 +8,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
     }
     buildTypes {
         release {
@@ -17,6 +17,33 @@ android {
         }
     }
 }
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'quantity-view'
+
+    publishedGroupId = 'quantityview'
+    libraryName = 'me.himanshusoni.quantityview'
+    artifact = 'quantity-view'
+
+    libraryDescription = 'Android quantity view with add and remove button'
+
+    siteUrl = 'https://github.com/himanshu-soni/quantity-view'
+    gitUrl = 'https://github.com/himanshu-soni/quantity-view.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'himanshu-soni'
+    developerName = 'Himanshu Soni'
+    developerEmail = 'himanshusoni.me@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
