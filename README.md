@@ -42,6 +42,7 @@ app:qv_removeButtonTextColor="color"
 app:qv_quantityBackground="color|drawable"
 app:qv_quantityTextColor="color"
 app:qv_quantity="integer"
+app:qv_quantityPadding="dimension"
 app:qv_maxQuantity="integer"
 app:qv_minQuantity="integer"
 ```

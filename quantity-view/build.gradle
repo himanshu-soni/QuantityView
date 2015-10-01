@@ -22,8 +22,8 @@ ext {
     bintrayRepo = 'maven'
     bintrayName = 'quantity-view'
 
-    publishedGroupId = 'quantityview'
-    libraryName = 'me.himanshusoni.quantityview'
+    publishedGroupId = 'me.himanshusoni.quantityview'
+    libraryName = 'quantity-view'
     artifact = 'quantity-view'
 
     libraryDescription = 'Android quantity view with add and remove button'

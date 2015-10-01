@@ -86,7 +86,7 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
         maxQuantity = a.getInt(R.styleable.QuantityView_qv_maxQuantity, Integer.MAX_VALUE);
         minQuantity = a.getInt(R.styleable.QuantityView_qv_minQuantity, 0);
 
-        quantityPadding = (int) a.getDimension(R.styleable.QuantityView_exampleDimension, pxFromDp(24));
+        quantityPadding = (int) a.getDimension(R.styleable.QuantityView_qv_quantityPadding, pxFromDp(24));
         quantityTextColor = a.getColor(R.styleable.QuantityView_qv_quantityTextColor, Color.BLACK);
         quantityBackground = ContextCompat.getDrawable(getContext(), R.drawable.qv_bg_selector);
         if (a.hasValue(R.styleable.QuantityView_qv_quantityBackground)) {
