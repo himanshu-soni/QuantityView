@@ -7,7 +7,7 @@ Android quantity view with add and remove button to simply use as a complex widg
 ![QuantityView](https://raw.githubusercontent.com/himanshu-soni/QuantityView/master/screenshots/device-2015-09-29-191352.png)
 
 ### Installation
-add gradle dependency to your dependency list:
+add gradle dependency to your dependency list (coming soon):
 
 ``` groovy
 dependencies {
