@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="quantity-view-1.1.0">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/me.himanshusoni.quantityview/quantity-view/1.1.0/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/me.himanshusoni.quantityview/quantity-view/1.1.0/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/me.himanshusoni.quantityview/quantity-view/1.1.0/4e631b372233b67f9544ab226a18101125b93a79/quantity-view-1.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

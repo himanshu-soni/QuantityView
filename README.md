@@ -9,11 +9,11 @@ Android quantity view with add and remove button to simply use as a complex widg
 ![QuantityView](https://raw.githubusercontent.com/himanshu-soni/QuantityView/master/screenshots/device-2015-10-09-175420.png)
 
 ### Installation
-add gradle dependency to your dependency listupdaupdateu:
+add gradle dependency to your dependency list:
 
 ``` groovy
 dependencies {
-	compile 'me.himanshusoni.quantityview:quantity-view:1.0.0'
+	compile 'me.himanshusoni.quantityview:quantity-view:1.1.0'
 }
 ```
 
@@ -48,6 +48,11 @@ app:qv_quantityPadding="dimension"
 app:qv_maxQuantity="integer"
 app:qv_minQuantity="integer"
 ```
+
+
+#### Change Log
+###### v1.1.0
+- added option to use custom click listener on quantity for custom view.
 
 ==================
 developed to make programming easy.
