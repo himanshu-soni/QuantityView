@@ -42,6 +42,7 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
     }
 
     private OnQuantityChangeListener onQuantityChangeListener;
+    private OnClickListener mTextViewClickListener;
 
     public QuantityView(Context context) {
         super(context);
@@ -136,6 +137,11 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
         mTextViewQuantity.setOnClickListener(this);
     }
 
+
+    public void setQuantityClickListener(OnClickListener ocl) {
+        mTextViewClickListener = ocl;
+    }
+
     @Override
     public void onClick(View v) {
         if (v == mButtonAdd) {
@@ -157,6 +163,10 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
                     onQuantityChangeListener.onQuantityChanged(quantity, false);
             }
         } else if (v == mTextViewQuantity) {
+            if (mTextViewClickListener != null) {
+                mTextViewClickListener.onClick(v);
+                return;
+            }
             AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
             builder.setTitle("Change Quantity");
 
