@@ -35,6 +35,10 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
     private Button mButtonAdd, mButtonRemove;
     private TextView mTextViewQuantity;
 
+    private String labelDialogTitle = "Change Quantity";
+    private String labelPositiveButton = "Change";
+    private String labelNegativeButton = "Cancel";
+
     public interface OnQuantityChangeListener {
         void onQuantityChanged(int newQuantity, boolean programmatically);
 
@@ -168,14 +172,14 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
                 return;
             }
             AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-            builder.setTitle("Change Quantity");
+            builder.setTitle(labelDialogTitle);
 
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.qv_dialog_changequantity, null, false);
             final EditText et = (EditText) inflate.findViewById(R.id.qv_et_change_qty);
             et.setText(String.valueOf(quantity));
 
             builder.setView(inflate);
-            builder.setPositiveButton("Change", new DialogInterface.OnClickListener() {
+            builder.setPositiveButton(labelPositiveButton, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     String newQuantity = et.getText().toString();
@@ -184,7 +188,7 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
                         setQuantity(intNewQuantity);
                     }
                 }
-            }).setNegativeButton("Cancel", null);
+            }).setNegativeButton(labelNegativeButton, null);
             builder.show();
         }
     }
@@ -346,6 +350,30 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
     public void setRemoveButtonTextColorRes(int removeButtonTextColorRes) {
         this.removeButtonTextColor = ContextCompat.getColor(getContext(), removeButtonTextColorRes);
         mButtonRemove.setTextColor(removeButtonTextColor);
+    }
+
+    public String getLabelDialogTitle() {
+        return labelDialogTitle;
+    }
+
+    public void setLabelDialogTitle(String labelDialogTitle) {
+        this.labelDialogTitle = labelDialogTitle;
+    }
+
+    public String getLabelPositiveButton() {
+        return labelPositiveButton;
+    }
+
+    public void setLabelPositiveButton(String labelPositiveButton) {
+        this.labelPositiveButton = labelPositiveButton;
+    }
+
+    public String getLabelNegativeButton() {
+        return labelNegativeButton;
+    }
+
+    public void setLabelNegativeButton(String labelNegativeButton) {
+        this.labelNegativeButton = labelNegativeButton;
     }
 
     private int dpFromPx(final float px) {
