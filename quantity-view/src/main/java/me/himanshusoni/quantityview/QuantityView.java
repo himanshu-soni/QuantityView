@@ -273,7 +273,6 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
             if (onQuantityChangeListener != null) onQuantityChangeListener.onLimitReached();
         }
 
-
         if (!limitReached && onQuantityChangeListener != null)
             onQuantityChangeListener.onQuantityChanged(quantity, true);
 
