@@ -2,15 +2,24 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "me.himanshusoni.quantityview.sample"
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 4
+        versionName "1.1.3"
+
+        // Stops the Gradle plugin’s automatic rasterization of vectors
+        generatedDensities = []
     }
+
+    // Flag to tell aapt to keep the attribute ids around
+    aaptOptions {
+        additionalParameters "--no-version-vectors"
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -21,8 +30,8 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:23.2.0'
-    compile 'me.himanshusoni.quantityview:quantity-view:1.1.1'
-//    compile project(':quantity-view')
+    compile 'com.android.support:appcompat-v7:23.3.0'
+//    compile 'me.himanshusoni.quantityview:quantity-view:1.1.1'
+    compile project(':quantity-view')
 
 }

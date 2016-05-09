@@ -2,14 +2,16 @@ package me.himanshusoni.quantityview;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Quantity view to add and remove quantities
@@ -27,7 +30,8 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
 
     private String addButtonText, removeButtonText;
 
-    private int quantity, maxQuantity, minQuantity;
+    private int quantity;
+    private int maxQuantity = Integer.MAX_VALUE, minQuantity = Integer.MAX_VALUE;
     private int quantityPadding;
 
     private int quantityTextColor, addButtonTextColor, removeButtonTextColor;
@@ -97,29 +101,31 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
         a.recycle();
         int dp10 = pxFromDp(10);
 
-        mButtonAdd = new Button(getContext());
+        mButtonAdd = new AppCompatButton(getContext());
         mButtonAdd.setGravity(Gravity.CENTER);
         mButtonAdd.setPadding(dp10, dp10, dp10, dp10);
         mButtonAdd.setMinimumHeight(0);
         mButtonAdd.setMinimumWidth(0);
         mButtonAdd.setMinHeight(0);
         mButtonAdd.setMinWidth(0);
+        mButtonAdd.setIncludeFontPadding(false);
         setAddButtonBackground(addButtonBackground);
         setAddButtonText(addButtonText);
         setAddButtonTextColor(addButtonTextColor);
 
-        mButtonRemove = new Button(getContext());
+        mButtonRemove = new AppCompatButton(getContext());
         mButtonRemove.setGravity(Gravity.CENTER);
         mButtonRemove.setPadding(dp10, dp10, dp10, dp10);
         mButtonRemove.setMinimumHeight(0);
         mButtonRemove.setMinimumWidth(0);
         mButtonRemove.setMinHeight(0);
         mButtonRemove.setMinWidth(0);
+        mButtonRemove.setIncludeFontPadding(false);
         setRemoveButtonBackground(removeButtonBackground);
         setRemoveButtonText(removeButtonText);
         setRemoveButtonTextColor(removeButtonTextColor);
 
-        mTextViewQuantity = new TextView(getContext());
+        mTextViewQuantity = new AppCompatTextView(getContext());
         mTextViewQuantity.setGravity(Gravity.CENTER);
         setQuantityTextColor(quantityTextColor);
         setQuantity(quantity);
@@ -170,22 +176,31 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
             AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
             builder.setTitle("Change Quantity");
 
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.qv_dialog_changequantity, null, false);
+            final View inflate = LayoutInflater.from(getContext()).inflate(R.layout.qv_dialog_changequantity, null, false);
             final EditText et = (EditText) inflate.findViewById(R.id.qv_et_change_qty);
             et.setText(String.valueOf(quantity));
 
             builder.setView(inflate);
-            builder.setPositiveButton("Change", new DialogInterface.OnClickListener() {
+            builder.setPositiveButton("Change", null).setNegativeButton("Cancel", null);
+            final AlertDialog dialog = builder.show();
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new OnClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
+                public void onClick(View v) {
                     String newQuantity = et.getText().toString();
-                    if (isNumber(newQuantity)) {
+                    if (isValidNumber(newQuantity)) {
                         int intNewQuantity = Integer.parseInt(newQuantity);
-                        setQuantity(intNewQuantity);
+                        Log.d(VIEW_LOG_TAG, "newQuantity " + intNewQuantity + " max " + maxQuantity);
+                        if (intNewQuantity <= maxQuantity) {
+                            setQuantity(intNewQuantity);
+                            dialog.dismiss();
+                        } else {
+                            Toast.makeText(getContext(), "Maximum quantity allowed is " + maxQuantity, Toast.LENGTH_LONG).show();
+                        }
+                    } else {
+                        Toast.makeText(getContext(), "Enter valid number", Toast.LENGTH_LONG).show();
                     }
                 }
-            }).setNegativeButton("Cancel", null);
-            builder.show();
+            });
         }
     }
 
@@ -356,10 +371,9 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
     }
 
 
-    private boolean isNumber(String string) {
+    private boolean isValidNumber(String string) {
         try {
-            Integer.parseInt(string);
-            return true;
+            return Integer.parseInt(string) <= Integer.MAX_VALUE;
         } catch (Exception e) {
             return false;
         }

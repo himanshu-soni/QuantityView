@@ -13,6 +13,13 @@
             <option value="$PROJECT_DIR$/quantity-view" />
           </set>
         </option>
+        <option name="myModules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/quantity-view" />
+          </set>
+        </option>
       </GradleProjectSettings>
     </option>
   </component>

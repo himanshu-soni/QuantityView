@@ -5,61 +5,76 @@
     android:layout_height="match_parent"
     android:background="@color/md_white_1000"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Default"
-        android:textAppearance="?android:textAppearanceLarge" />
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?colorPrimary"
+        android:elevation="4dp"
+        android:gravity="center_horizontal"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-    <me.himanshusoni.quantityview.QuantityView
-        android:id="@+id/quantityView_default"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:qv_quantity="10" />
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Custom 1"
-        android:textAppearance="?android:textAppearanceLarge" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Default"
+            android:textAppearance="?android:textAppearanceLarge" />
 
-    <me.himanshusoni.quantityview.QuantityView
-        android:id="@+id/quantityView_custom_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:qv_addButtonText="ADD MORE"
-        app:qv_addButtonTextColor="@color/md_green_500"
-        app:qv_maxQuantity="20"
-        app:qv_quantity="15"
-        app:qv_removeButtonText="REMOVE"
-        app:qv_removeButtonTextColor="@color/md_red_500" />
+        <me.himanshusoni.quantityview.QuantityView
+            android:id="@+id/quantityView_default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:qv_quantity="10" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Custom 2"
-        android:textAppearance="?android:textAppearanceLarge" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Custom 1"
+            android:textAppearance="?android:textAppearanceLarge" />
 
-    <me.himanshusoni.quantityview.QuantityView
-        android:id="@+id/quantityView_custom_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:qv_addButtonBackground="@drawable/add_selector"
-        app:qv_addButtonTextColor="@color/md_white_1000"
-        app:qv_quantity="20"
-        app:qv_removeButtonBackground="@drawable/remove_selector"
-        app:qv_removeButtonTextColor="@color/md_white_1000" />
+        <me.himanshusoni.quantityview.QuantityView
+            android:id="@+id/quantityView_custom_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:qv_addButtonText="ADD MORE"
+            app:qv_addButtonTextColor="@color/md_green_500"
+            app:qv_maxQuantity="20"
+            app:qv_quantity="15"
+            app:qv_removeButtonText="REMOVE"
+            app:qv_removeButtonTextColor="@color/md_red_500" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Custom 2"
+            android:textAppearance="?android:textAppearanceLarge" />
+
+        <me.himanshusoni.quantityview.QuantityView
+            android:id="@+id/quantityView_custom_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:qv_addButtonBackground="@drawable/add_selector"
+            app:qv_addButtonTextColor="@color/md_white_1000"
+            app:qv_quantity="20"
+            app:qv_removeButtonBackground="@drawable/remove_selector"
+            app:qv_removeButtonTextColor="@color/md_white_1000" />
+    </LinearLayout>
 
 </LinearLayout>

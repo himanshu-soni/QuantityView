@@ -2,13 +2,13 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 2
-        versionName "1.1.1"
+        versionCode 4
+        versionName "1.1.3"
     }
     buildTypes {
         release {
@@ -31,7 +31,7 @@ ext {
     siteUrl = 'https://github.com/himanshu-soni/QuantityView'
     gitUrl = 'https://github.com/himanshu-soni/QuantityView.git'
 
-    libraryVersion = '1.1.1'
+    libraryVersion = '1.1.3'
 
     developerId = 'himanshu-soni'
     developerName = 'Himanshu Soni'
@@ -47,5 +47,5 @@ apply from: 'https://raw.githubusercontent.com/himanshu-soni/QuantityView/master
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.2.0'
+    compile 'com.android.support:appcompat-v7:23.3.0'
 }
