@@ -61,9 +61,12 @@ public class MainActivity extends AppCompatActivity implements QuantityView.OnQu
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
                         if (TextUtils.isEmpty(s)) return;
-
-                        int intNewQuantity = Integer.parseInt(s.toString());
-                        tvTotal.setText("$ " + intNewQuantity * pricePerProduct);
+                        if (QuantityView.isValidNumber(s.toString())) {
+                            int intNewQuantity = Integer.parseInt(s.toString());
+                            tvTotal.setText("$ " + intNewQuantity * pricePerProduct);
+                        } else {
+                            Toast.makeText(MainActivity.this, "Enter valid integer", Toast.LENGTH_LONG).show();
+                        }
                     }
 
                     @Override

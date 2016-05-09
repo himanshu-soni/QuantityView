@@ -2,7 +2,6 @@ package me.himanshusoni.quantityview;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -10,6 +9,7 @@ import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Quantity view to add and remove quantities
@@ -200,6 +201,7 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
                     }
                 }
             });
+        }
     }
 
 
@@ -394,7 +396,7 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
     }
 
 
-    private boolean isValidNumber(String string) {
+    public static boolean isValidNumber(String string) {
         try {
             return Integer.parseInt(string) <= Integer.MAX_VALUE;
         } catch (Exception e) {
