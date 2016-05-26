@@ -190,12 +190,15 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
                     if (isValidNumber(newQuantity)) {
                         int intNewQuantity = Integer.parseInt(newQuantity);
                         Log.d(VIEW_LOG_TAG, "newQuantity " + intNewQuantity + " max " + maxQuantity);
-                        if (intNewQuantity <= maxQuantity) {
+                        if (intNewQuantity > maxQuantity) {
+                            Toast.makeText(getContext(), "Maximum quantity allowed is " + maxQuantity, Toast.LENGTH_LONG).show();
+                        } else if (intNewQuantity < minQuantity) {
+                            Toast.makeText(getContext(), "Minimum quantity allowed is " + minQuantity, Toast.LENGTH_LONG).show();
+                        } else {
                             setQuantity(intNewQuantity);
                             dialog.dismiss();
-                        } else {
-                            Toast.makeText(getContext(), "Maximum quantity allowed is " + maxQuantity, Toast.LENGTH_LONG).show();
                         }
+
                     } else {
                         Toast.makeText(getContext(), "Enter valid number", Toast.LENGTH_LONG).show();
                     }

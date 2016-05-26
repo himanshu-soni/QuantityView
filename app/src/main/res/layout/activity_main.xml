@@ -54,6 +54,7 @@
             app:qv_addButtonText="ADD MORE"
             app:qv_addButtonTextColor="@color/md_green_500"
             app:qv_maxQuantity="20"
+            app:qv_minQuantity="2"
             app:qv_quantity="15"
             app:qv_removeButtonText="REMOVE"
             app:qv_removeButtonTextColor="@color/md_red_500" />
