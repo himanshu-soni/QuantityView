@@ -13,7 +13,7 @@ add gradle dependency to your dependency list:
 
 ``` groovy
 dependencies {
-	compile 'me.himanshusoni.quantityview:quantity-view:1.1.4'
+	compile 'me.himanshusoni.quantityview:quantity-view:1.1.5'
 }
 ```
 
