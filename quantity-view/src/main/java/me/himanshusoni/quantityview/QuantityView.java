@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -196,6 +197,7 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
                             Toast.makeText(getContext(), "Minimum quantity allowed is " + minQuantity, Toast.LENGTH_LONG).show();
                         } else {
                             setQuantity(intNewQuantity);
+                            hideKeyboard(et);
                             dialog.dismiss();
                         }
 
@@ -204,6 +206,13 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
                     }
                 }
             });
+        }
+    }
+
+    public void hideKeyboard(View focus) {
+        InputMethodManager inputManager = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (focus != null) {
+            inputManager.hideSoftInputFromWindow(focus.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
 
