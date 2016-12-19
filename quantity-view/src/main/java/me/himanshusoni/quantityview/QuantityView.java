@@ -30,6 +30,7 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
     private String addButtonText, removeButtonText;
 
     private int quantity;
+    private boolean quantityDialog;
     private int maxQuantity = Integer.MAX_VALUE, minQuantity = Integer.MAX_VALUE;
     private int quantityPadding;
 
@@ -101,6 +102,8 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
             quantityBackground = a.getDrawable(R.styleable.QuantityView_qv_quantityBackground);
         }
 
+        quantityDialog = a.getBoolean(R.styleable.QuantityView_qv_quantityDialog, true);
+
         a.recycle();
         int dp10 = pxFromDp(10);
 
@@ -170,6 +173,8 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
                     onQuantityChangeListener.onQuantityChanged(quantity, false);
             }
         } else if (v == mTextViewQuantity) {
+            if (!quantityDialog) return;
+
             if (mTextViewClickListener != null) {
                 mTextViewClickListener.onClick(v);
                 return;
@@ -397,6 +402,14 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
 
     public void setLabelNegativeButton(String labelNegativeButton) {
         this.labelNegativeButton = labelNegativeButton;
+    }
+
+    public void setQuantityDialog(boolean quantityDialog) {
+        this.quantityDialog = quantityDialog;
+    }
+
+    public boolean isQuantityDialog() {
+        return quantityDialog;
     }
 
     private int dpFromPx(final float px) {

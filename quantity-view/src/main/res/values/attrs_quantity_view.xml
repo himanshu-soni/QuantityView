@@ -9,6 +9,7 @@
         <attr name="qv_removeButtonTextColor" format="color" />
 
         <attr name="qv_quantity" format="integer" />
+        <attr name="qv_quantityDialog" format="boolean" />
         <attr name="qv_quantityBackground" format="color|reference" />
         <attr name="qv_quantityTextColor" format="color" />
         <attr name="qv_quantityPadding" format="dimension" />
