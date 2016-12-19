@@ -13,7 +13,7 @@ add gradle dependency to your dependency list:
 
 ``` groovy
 dependencies {
-	compile 'me.himanshusoni.quantityview:quantity-view:1.1.5'
+	compile 'me.himanshusoni.quantityview:quantity-view:1.1.6'
 }
 ```
 
@@ -47,6 +47,7 @@ app:qv_quantity="integer"
 app:qv_quantityPadding="dimension"
 app:qv_maxQuantity="integer"
 app:qv_minQuantity="integer"
+app:qv_quantityDialog="boolean"
 ```
 
 
