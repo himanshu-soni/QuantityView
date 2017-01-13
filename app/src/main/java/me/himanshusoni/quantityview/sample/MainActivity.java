@@ -100,7 +100,11 @@ public class MainActivity extends AppCompatActivity implements QuantityView.OnQu
     }
 
     @Override
-    public void onQuantityChanged(int newQuantity, boolean programmatically) {
+    public void onQuantityChanged(int oldQuantity, int newQuantity, boolean programmatically) {
+        QuantityView quantityViewCustom1 = (QuantityView) findViewById(R.id.quantityView_custom_1);
+        if (newQuantity == 3) {
+            quantityViewCustom1.setQuantity(oldQuantity);
+        }
         Toast.makeText(MainActivity.this, "Quantity: " + newQuantity, Toast.LENGTH_LONG).show();
     }
 

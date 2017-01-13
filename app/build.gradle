@@ -8,8 +8,8 @@ android {
         applicationId "me.himanshusoni.quantityview.sample"
         minSdkVersion 14
         targetSdkVersion 25
-        versionCode 6
-        versionName "1.1.6"
+        versionCode 7
+        versionName "1.2.0"
 
         // Stops the Gradle plugin’s automatic rasterization of vectors
         generatedDensities = []
@@ -31,6 +31,6 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:25.1.0'
-    //    compile 'me.himanshusoni.quantityview:quantity-view:1.1.6'
+    //    compile 'me.himanshusoni.quantityview:quantity-view:1.2.0'
     compile project(':quantity-view')
 }

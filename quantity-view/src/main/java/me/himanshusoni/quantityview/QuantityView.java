@@ -44,7 +44,7 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
     private String labelNegativeButton = "Cancel";
 
     public interface OnQuantityChangeListener {
-        void onQuantityChanged(int newQuantity, boolean programmatically);
+        void onQuantityChanged(int oldQuantity, int newQuantity, boolean programmatically);
 
         void onLimitReached();
     }
@@ -158,19 +158,21 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
             if (quantity + 1 > maxQuantity) {
                 if (onQuantityChangeListener != null) onQuantityChangeListener.onLimitReached();
             } else {
+                int oldQty = quantity;
                 quantity += 1;
                 mTextViewQuantity.setText(String.valueOf(quantity));
                 if (onQuantityChangeListener != null)
-                    onQuantityChangeListener.onQuantityChanged(quantity, false);
+                    onQuantityChangeListener.onQuantityChanged(oldQty, quantity, false);
             }
         } else if (v == mButtonRemove) {
             if (quantity - 1 < minQuantity) {
                 if (onQuantityChangeListener != null) onQuantityChangeListener.onLimitReached();
             } else {
+                int oldQty = quantity;
                 quantity -= 1;
                 mTextViewQuantity.setText(String.valueOf(quantity));
                 if (onQuantityChangeListener != null)
-                    onQuantityChangeListener.onQuantityChanged(quantity, false);
+                    onQuantityChangeListener.onQuantityChanged(oldQty, quantity, false);
             }
         } else if (v == mTextViewQuantity) {
             if (!quantityDialog) return;
@@ -291,26 +293,26 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(int newQuantity) {
         boolean limitReached = false;
 
-        if (quantity > maxQuantity) {
-            quantity = maxQuantity;
+        if (newQuantity > maxQuantity) {
+            newQuantity = maxQuantity;
             limitReached = true;
+        }
+        if (newQuantity < minQuantity) {
+            newQuantity = minQuantity;
+            limitReached = true;
+        }
+        if (!limitReached) {
+//            if (onQuantityChangeListener != null) {
+//                onQuantityChangeListener.onQuantityChanged(quantity, newQuantity, true);
+//            }
+            this.quantity = newQuantity;
+            mTextViewQuantity.setText(String.valueOf(this.quantity));
+        } else {
             if (onQuantityChangeListener != null) onQuantityChangeListener.onLimitReached();
         }
-        if (quantity < minQuantity) {
-            quantity = minQuantity;
-            limitReached = true;
-            if (onQuantityChangeListener != null) onQuantityChangeListener.onLimitReached();
-        }
-
-
-        if (!limitReached && onQuantityChangeListener != null)
-            onQuantityChangeListener.onQuantityChanged(quantity, true);
-
-        this.quantity = quantity;
-        mTextViewQuantity.setText(String.valueOf(this.quantity));
     }
 
     public int getMaxQuantity() {

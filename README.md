@@ -13,7 +13,7 @@ add gradle dependency to your dependency list:
 
 ``` groovy
 dependencies {
-	compile 'me.himanshusoni.quantityview:quantity-view:1.1.6'
+	compile 'me.himanshusoni.quantityview:quantity-view:1.2.0'
 }
 ```
 
@@ -52,6 +52,9 @@ app:qv_quantityDialog="boolean"
 
 
 #### Change Log
+###### v1.2.0
+- old and new quantity in `OnQuantityChangeListener`.
+
 ###### v1.1.0
 - added option to use custom click listener on quantity for custom view.
 
